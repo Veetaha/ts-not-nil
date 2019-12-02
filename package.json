@@ -1,0 +1,54 @@
+{
+    "name": "ts-not-nil",
+    "version": "1.0.0",
+    "description": "A runtime assertion for preserving not-null and not-undefined invariants",
+    "main": "build/lib/not-nil.js",
+    "types": "build/lib/not-nil.d.ts",
+    "keywords": [
+        "typescript",
+        "not",
+        "null",
+        "nil",
+        "undefined",
+        "nullish",
+        "assert",
+        "assertion",
+        "unwrap",
+        "optional",
+        "option",
+        "essentials"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Veetaha/ts-not-nil.git"
+    },
+    "scripts": {
+        "pre-deploy": "npm-run-all test build",
+        "build": "     npm-run-all clean transpile",
+        "test": "      jest",
+        "transpile": " tsc",
+        "clean": "     rimraf build",
+        "bootstrap": " npm i && npm run build",
+        "bump-deps": " ncu -u"
+    },
+    "author": "Vitaliy Kryvenko",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/jest": "^24.0.18",
+        "bdd-lazy-var": "^2.5.2",
+        "jest": "^24.9.0",
+        "npm-check-updates": "^3.1.21",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^3.0.0",
+        "ts-jest": "^24.0.2",
+        "ts-node": "^8.3.0",
+        "tslint": "^5.19.0",
+        "typescript": "^3.7.2"
+    },
+    "dependencies": {
+        "ts-typedefs": ">=3.1.0"
+    },
+    "peerDependencies": {
+        "typescript": ">=3.7.x"
+    }
+}
