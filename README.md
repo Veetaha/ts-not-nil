@@ -41,7 +41,7 @@ const foo: number | undefined = map.get("key");
 
 assertNotNil(foo, `I've added an entry with key "key" one line above!`);
 
-foo; // `string` - its type was narrowed to just string after assertion
+foo; // `number` - its type was narrowed to just number after assertion
 
 const bar: number = unwrapNotNil(map.get("key"), "Believe me!"); // inline assertion
 
@@ -56,7 +56,7 @@ unwrapNotNil(undefined);
 
 Both of the exported functions help you to catch bugs at compile time.
 They explicitly prohibit calling them with `T` that is known to be neither `null` nor `undefined` at compile time.
-This is quite a hack with type system, that may generate a long error report, but
+This is quite a hack with the type system, that may generate a long error report, but
 as long as you see which line it points to and see `assertNotNil(val)` or `unwrapNotNil(val)`
 invocation you should rethink whether this assertion is really needed (because the type system already ensures that val is not `null` or `undefined`).
 
