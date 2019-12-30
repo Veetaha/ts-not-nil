@@ -32,7 +32,7 @@ If `val` is neither `null` nor `undefined` nothing happens.
 
 The difference between `assertNotNil(val)` and `unwrapNotNil(val)` is that the former returns `val` back which is handy for inline assertions inside of expressions.
 
-The second optional parameter `reason` will be embedded into the thrown error message in case of assertion failure.
+The second optional parameter `reason` will be embedded into the thrown error message in case of an assertion failure.
 ```ts
 const map = new Map<string, number>();
 map.set("key", 42);
@@ -56,9 +56,12 @@ unwrapNotNil(undefined);
 
 Both of the exported functions help you to catch bugs at compile time.
 They explicitly prohibit calling them with `T` that is known to be neither `null` nor `undefined` at compile time.
-This is quite a hack with the type system, that may generate a long error report, but
-as long as you see which line it points to and see `assertNotNil(val)` or `unwrapNotNil(val)`
-invocation you should rethink whether this assertion is really needed (because the type system already ensures that val is not `null` or `undefined`).
+This is quite a hack with the type system, that may generate an error report that says
+you didn't pass the second parameter to `*notNil()` function or that the parameter
+is not assignable to `NotNilAssertionCompileError`, but as long as you see which line it points to
+and see `assertNotNil(val)` or `unwrapNotNil(val)` invocation you should
+rethink whether this assertion is really needed (because the type system
+already ensures that `val` is neither `null` nor `undefined`).
 
 ```ts
 declare const unkown:     unknown;
