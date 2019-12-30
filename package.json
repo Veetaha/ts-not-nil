@@ -28,6 +28,7 @@
         "test": "jest",
         "transpile": " tsc",
         "clean": "rimraf build",
+        "bootstrap": " npm i && npm run build",
         "bump-deps:major:dry-run": "ncu",
         "bump-deps:major": "ncu -u && npm i",
         "bump-deps:minor:dry-run": "ncu",
